@@ -33,4 +33,20 @@ clear.addEventListener("click", () => {
   textArea.value = "";
 });
 
+numPad = [
+  96, 97, 98, 99, 100, 101, 102, 103, 104, 105, 106, 107, 108, 109, 110, 111,
+];
 
+
+
+addEventListener("keydown", (e) => {
+  let keyCode = e.key;
+  console.log('primer log '+ keyCode)
+  for (let i = 0; i < numPad.length; i++) {
+    if (numPad[i] == keyCode) {
+      console.log(keyCode);
+    }
+  }
+});
+
+//creo que acabo de descubrir que no hace falta el if ni el for pero hay que seguir investingando
