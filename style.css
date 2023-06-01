@@ -1,0 +1,136 @@
+main {
+  background-color: rgb(4, 10, 65);
+  width: 100%;
+  height: 100vh;
+  font-family: Arial, Helvetica, sans-serif;
+  position: relative;
+}
+
+.calc {
+  background-color: rgb(52, 52, 52);
+  width: fit-content;
+  height: fit-content;
+  display: flex;
+  flex-direction: column;
+  border-radius: 5px;
+  border-right: 15px solid rgb(44, 44, 44);
+  border-bottom: 15px solid rgb(30, 30, 30);
+  box-shadow: 10px 10px 10px;
+  position: absolute;
+  transform: translate(-50%, -50%);
+  Left: 50%;
+  top: 50%;
+}
+
+.calc__text {
+  width: 430px;
+  height: 100px;
+  border-radius: 10px;
+  margin: 20px auto 10px;
+  border-top: 5px solid black;
+  border-left: 5px solid black;
+  font-size: 60px;
+  font-weight: 700;
+  direction: rtl;
+  background-color: aliceblue;
+}
+
+.calc__pad {
+  display: flex;
+  flex-direction: column-reverse;
+  row-gap: 10px;
+  padding: 20px;
+}
+
+.calc__num {
+  display: flex;
+  column-gap: 10px;
+}
+
+.calc__btn {
+  width: 100px;
+  height: 100px;
+  font-weight: 600;
+  font-size: 50px;
+  border-radius: 15px;
+  filter: drop-shadow(5px 5px 2px);
+  background-color: aliceblue;
+  transition: background-color 0.4s;
+}
+
+.calc__btn:hover {
+  background-color: aqua;
+}
+
+.calc__btn:active {
+  filter: drop-shadow(0 0 0);
+  scale: 0.9;
+  transition: background-color 0s;
+  background-color: rgb(92, 92, 92);
+}
+
+/* repito todas las propiedades de calc__btn en los de "result" por que me interfiere cuando lo llamo en JS con getElementByClassName */
+.calc__btn--result {
+  background-color: rgb(0, 202, 138);
+  width: 100px;
+  height: 100px;
+  font-weight: 600;
+  font-size: 50px;
+  border-radius: 15px;
+  filter: drop-shadow(5px 5px 2px);
+  transition: background-color 0.4s;
+}
+
+.calc__btn--result:hover {
+  background-color: aqua;
+}
+
+.calc__btn--result:active {
+  filter: drop-shadow(0 0 0);
+  scale: 0.9;
+  transition: background-color 0s;
+  background-color: rgb(92, 92, 92);
+}
+
+.calc__btn--clear {
+  background-color: rgb(255, 155, 155);
+}
+
+.calc__btn--division::after {
+  content: "÷";
+  height: 100%;
+  width: 100%;
+  background-color: aliceblue;
+  border-radius: 10px;
+  z-index: 1;
+  position: absolute;
+  left: 0;
+  top: 0;
+  line-height: 100px;
+  transition: background-color 0.4s;
+}
+
+.calc__btn--division:hover::after,
+.calc__btn--multip:hover::after {
+  background-color: aqua;
+}
+
+.calc__btn--division:active::after,
+.calc__btn--multip:active::after {
+  background-color: rgb(92, 92, 92);
+  transition: background-color 0s;
+}
+
+.calc__btn--multip::after {
+  content: "×";
+  height: 100%;
+  width: 100%;
+  background-color: aliceblue;
+  border-radius: 10px;
+  z-index: 1;
+  position: absolute;
+  left: 0;
+  top: 0;
+  line-height: 100px;
+  transition: background-color 0.4s;
+}
