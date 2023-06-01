@@ -1,5 +1,5 @@
 document.getElementById("calc").addEventListener("submit", (e) => {
-  e.preventDefault()
+  e.preventDefault();
 });
 
 const btn = document.getElementsByClassName("calc__btn");
@@ -32,3 +32,5 @@ const clear = document.getElementById("c");
 clear.addEventListener("click", () => {
   textArea.value = "";
 });
+
+
