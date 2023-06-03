@@ -3,6 +3,7 @@ document.getElementById("calc").addEventListener("submit", (e) => {
 });
 
 const btn = document.getElementsByClassName("calc__btn");
+console.log(btn)
 
 const textArea = document.getElementById("textArea");
 
@@ -18,13 +19,17 @@ for (let i = 0; i < btn.length; i++) {
 
 const result = document.getElementById("=");
 
-result.addEventListener("click", function () {
+function evalResult() {
   let resultAll = eval(textArea.value);
   textArea.value = "";
   textArea.value = resultAll;
   if (textArea.value.length > 12) {
     textArea.value = textArea.value.slice(0, 12);
   }
+}
+
+result.addEventListener("click", function () {
+  evalResult();
 });
 
 const clear = document.getElementById("c");
@@ -33,20 +38,38 @@ clear.addEventListener("click", () => {
   textArea.value = "";
 });
 
-numPad = [
-  96, 97, 98, 99, 100, 101, 102, 103, 104, 105, 106, 107, 108, 109, 110, 111,
-];
+numPad = ["0","1","2","3","4","5","6","7","8","9","/","*","-","+","."];
 
-
-
+//con solo "let keyCode = e.key;" ya se captura el teclado. Facil.
 addEventListener("keydown", (e) => {
-  let keyCode = e.key;
-  console.log('primer log '+ keyCode)
-  for (let i = 0; i < numPad.length; i++) {
-    if (numPad[i] == keyCode) {
-      console.log(keyCode);
+  if (e.key == "Backspace") {
+    textArea.value = textArea.value.substring(0, textArea.value.length - 1);
+  } else {
+    for (let i = 0; i < numPad.length; i++) {
+      if (numPad[i] === e.key) {
+        textArea.value += e.key;
+        document.getElementById(numPad[i]).classList.add("calc__btn--toggle")
+        if (numPad[i] === 'Enter') {
+          document.getElementById('=').classList.add("")
+        }
+      }
+    }
+    if (e.key == "Enter") {
+      evalResult();
+      document.getElementById("=").classList.add("calc__btn--toggle")
     }
   }
 });
 
-//creo que acabo de descubrir que no hace falta el if ni el for pero hay que seguir investingando
+//Quitar Animación de las teclas al preisonar:
+addEventListener("keyup", (e) => {
+  for (let i = 0; i < numPad.length; i++) {
+    if (numPad[i] === e.key) {
+      document.getElementById(numPad[i]).classList.remove("calc__btn--toggle");
+    }
+    if (e.key === 'Enter') {
+      document.getElementById("=").classList.remove("calc__btn--toggle");
+    }
+  }
+})
+

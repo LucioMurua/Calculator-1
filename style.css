@@ -92,6 +92,13 @@ main {
   background-color: rgb(92, 92, 92);
 }
 
+.calc__btn--toggle{
+  filter: drop-shadow(0 0 0);
+  scale: 0.9;
+  transition: background-color 0s;
+  background-color: aqua;
+}
+
 .calc__btn--clear {
   background-color: rgb(255, 155, 155);
 }
