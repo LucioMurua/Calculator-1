@@ -18,7 +18,7 @@ main {
   box-shadow: 10px 10px 10px;
   position: absolute;
   transform: translate(-50%, -50%);
-  Left: 50%;
+  left: 50%;
   top: 50%;
 }
 
@@ -95,7 +95,7 @@ main {
   background-color: rgb(92, 92, 92);
 }
 
-.calc__btn--toggle{
+.calc__btn--toggle {
   filter: drop-shadow(0 0 0);
   scale: 0.9;
   transition: background-color 0s;
@@ -143,4 +143,30 @@ main {
   top: 0;
   line-height: 100px;
   transition: background-color 0.4s;
+}
+
+@media screen and (max-width: 600px) {
+  .calc__text {
+    width: 300px;
+    height: 80px;
+    font-size: 40px;
+  }
+
+  .calc__btn {
+    width: 65px;
+    height: 65px;
+    font-size: 40px;
+    font-weight: 500;
+  }
+
+  .calc__btn--result {
+    width: 65px;
+    height: 65px;
+    font-weight: 500;
+    font-size: 50px;
+  }
+
+  .calc__btn--division::after, .calc__btn--multip::after {
+    line-height: 65px;
+  }
 }

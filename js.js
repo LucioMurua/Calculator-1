@@ -3,7 +3,6 @@ document.getElementById("calc").addEventListener("submit", (e) => {
 });
 
 const btn = document.getElementsByClassName("calc__btn");
-console.log(btn)
 
 const textArea = document.getElementById("textArea");
 
@@ -11,8 +10,8 @@ const textArea = document.getElementById("textArea");
 for (let i = 0; i < btn.length; i++) {
   btn[i].addEventListener("click", (e) => {
     parseInt((textArea.value += e.target.textContent));
-    if (textArea.value.length > 12) {
-      textArea.value = textArea.value.slice(0, 12);
+    if (textArea.value.length > 10) {
+      textArea.value = textArea.value.slice(0, 10);
     }
   });
 }
@@ -38,7 +37,7 @@ clear.addEventListener("click", () => {
   textArea.value = "";
 });
 
-numPad = ["0","1","2","3","4","5","6","7","8","9","/","*","-","+","."];
+numPad = ["0","1","2","3","4","5","6","7","8","9","/","*","-","+",".",];
 
 //con solo "let keyCode = e.key;" ya se captura el teclado. Facil.
 addEventListener("keydown", (e) => {
@@ -48,15 +47,15 @@ addEventListener("keydown", (e) => {
     for (let i = 0; i < numPad.length; i++) {
       if (numPad[i] === e.key) {
         textArea.value += e.key;
-        document.getElementById(numPad[i]).classList.add("calc__btn--toggle")
-        if (numPad[i] === 'Enter') {
-          document.getElementById('=').classList.add("")
+        document.getElementById(numPad[i]).classList.add("calc__btn--toggle");
+        if (numPad[i] === "Enter") {
+          document.getElementById("=").classList.add("");
         }
       }
     }
     if (e.key == "Enter") {
       evalResult();
-      document.getElementById("=").classList.add("calc__btn--toggle")
+      document.getElementById("=").classList.add("calc__btn--toggle");
     }
   }
 });
@@ -67,9 +66,8 @@ addEventListener("keyup", (e) => {
     if (numPad[i] === e.key) {
       document.getElementById(numPad[i]).classList.remove("calc__btn--toggle");
     }
-    if (e.key === 'Enter') {
+    if (e.key === "Enter") {
       document.getElementById("=").classList.remove("calc__btn--toggle");
     }
   }
-})
-
+});
