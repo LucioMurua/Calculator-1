@@ -157,6 +157,7 @@ main {
     height: 65px;
     font-size: 40px;
     font-weight: 500;
+    transition: background-color 0s;
   }
 
   .calc__btn--result {
@@ -169,4 +170,5 @@ main {
   .calc__btn--division::after, .calc__btn--multip::after {
     line-height: 65px;
   }
+
 }
